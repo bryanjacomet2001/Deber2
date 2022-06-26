@@ -3,3 +3,14 @@
     margin-left: 20%;
     margin-right: 20%;
 }
+
+.button-section{
+    width: 50%;
+    margin: 15px auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.button-section button:nth-child(2){
+    background-color: #d7263d;
+}

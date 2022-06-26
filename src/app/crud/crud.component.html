@@ -1,7 +1,11 @@
-<br>
-<button mat-raised-button color="accent" (click)="openDialogAgregar()"> Agregar</button>
-<br><br>
-
+<div class="container-inputFilter-buttonadd">
+    <mat-form-field appearance="standard" class="container-input-filter">
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+      </mat-form-field>
+    
+      <button mat-raised-button (click)="openDialogAgregar()" class="button-add"> Agregar +</button>
+</div>  
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="cedula">
         <th mat-header-cell *matHeaderCellDef> Cédula </th>

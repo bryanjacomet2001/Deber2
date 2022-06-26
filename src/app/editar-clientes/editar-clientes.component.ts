@@ -9,6 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   templateUrl: './editar-clientes.component.html',
   styleUrls: ['./editar-clientes.component.css']
 })
+
 export class EditarClientesComponent implements OnInit {
 
   constructor(private router: Router, private dialogRef: MatDialogRef<EditarClientesComponent>, 
@@ -48,7 +49,7 @@ export class EditarClientesComponent implements OnInit {
 
   redirectTo(uri:string, objToSend:NavigationExtras){
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
-    this.router.navigate([uri],{ state: {obtCliente: objToSend}}));
+    this.router.navigate([uri],{ state: {objEditar: objToSend}}));
   }
 
   cancelar()

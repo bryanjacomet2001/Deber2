@@ -43,19 +43,35 @@ export class CRUDComponent implements OnInit {
   nuevoCliente:any;
   nav: any;
   flag: Boolean = false;
+  editarCliente:any;
 
   constructor(private router: Router, private dialog:MatDialog, private dialogEdit:MatDialog) { 
 
     this.nav = this.router.getCurrentNavigation();
     this.nuevoCliente = this.nav.extras.state;
- 
+    this.editarCliente = this.nav.extras.state
+
+    if(this.editarCliente != null){
+      if(this.editarCliente.objEditar !=null){
+        for (let i = 0; i < this.data.length; i++) {
+          if(this.editarCliente.objEditar.queryParams.cedula == this.data[i].cedula){
+            this.flag = true;
+            this.pos = i;
+          }
+        }
+        if(this.flag){
+          this.data.splice(this.pos,1,this.editarCliente.objEditar.queryParams);
+        }
+      }
+    }
   
     /*Cuando Agregamos un nuevo cliente*/
     if (this.nuevoCliente != null)
     {
+      if(this.nuevoCliente.datosCliente !=null){
         console.log(this.nuevoCliente.datosCliente.queryParams);
         this.data.push(this.nuevoCliente.datosCliente.queryParams);
-
+      }
     }
   }
   
@@ -84,5 +100,10 @@ export class CRUDComponent implements OnInit {
       }
     }
     this.dialog.open(EditarClientesComponent,{ width:'50%', data: {usuario, pos}});
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }

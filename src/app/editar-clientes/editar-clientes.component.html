@@ -3,7 +3,6 @@
         <mat-card-title>Editar Cliente</mat-card-title>
     </div>   
     <br>
-    <!---->
     <form [formGroup]="usuarioEdit">
         <mat-form-field class="campos-field">
             <input matInput placeholder="Cedula" formControlName="cedula">
@@ -25,8 +24,10 @@
             <input matInput placeholder="Edad" formControlName="edad">
         </mat-form-field>
 
-        <button mat-raised-button [disabled] = "" (click)="onSubmitEdit()" >Editar</button>  
-        <button mat-raised-button color="accent" (click)="cancelar()">Cancelar</button>      
+        <div class="button-section">
+            <button mat-raised-button [disabled] = "!usuarioEdit.valid" (click)="onSubmitEdit()">Aceptar</button>  
+            <button mat-raised-button color="accent" (click)="cancelar()">Cancelar</button>
+        </div>      
     </form>
     
 </mat-card>

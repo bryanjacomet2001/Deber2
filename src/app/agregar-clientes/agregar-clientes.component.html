@@ -24,8 +24,11 @@
             <input matInput placeholder="Edad" formControlName="edad">
         </mat-form-field>
 
-        <button mat-raised-button [disabled] = "!usuarioNuevo.valid" (click)="onSubmit()">Aceptar</button>  
-        <button mat-raised-button color="accent" (click)="cancelar()">Cancelar</button>      
+        <div class="button-section">
+            <button mat-raised-button [disabled] = "!usuarioNuevo.valid" (click)="onSubmit()">Aceptar</button>  
+            <button mat-raised-button color="accent" (click)="cancelar()">Cancelar</button>
+        </div>
+              
     </form>
     
 </mat-card>

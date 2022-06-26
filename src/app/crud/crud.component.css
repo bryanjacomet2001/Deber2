@@ -1,3 +1,17 @@
 table {
-    width: 100%;
+    width: 90%;
+    margin: 30px auto 0px auto;
   }
+
+.container-inputFilter-buttonadd{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 30px auto 0px auto;
+}
+
+.button-add{
+  background-color: #38b000;
+  color: #fff;
+}
